@@ -23,26 +23,18 @@ def read2(text, st)
   a = 0
 	line.each do |l|
 		data =  l.split(' ')
-		h = []
-		f = []
-		g = 0
-
 		data.each do |o|			
 			h = o.split(' ')
 			f = h.select{|e| e == st}			
 			if h.include?(st)
 				a += 1
 			end
-			g = f.inject(0){|sum, e| sum += 1}	
-			
-		end
-	
-			sum += f.length	 
-		end 
+		end	
+	end 
 	
 print "La cantidad de veces que se encuentra la palabra #{st} es #{a} "
 
-	end
+end
 
  
 read2('peliculas.txt', sentence)
