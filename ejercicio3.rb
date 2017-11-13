@@ -14,8 +14,35 @@ puts 'Write a sentence'
 sentence = gets.chomp
 def read2(text, st)
   file = File.open(text, 'a')
-  file.puts "#{st}"
+  file.puts "#{st}" 
   file.close
-  print st.split(' ').size
-end
+  file = File.open(text, 'r')
+  line = file.readlines
+  file.close 
+  sum = 0 
+  a = 0
+	line.each do |l|
+		data =  l.split(' ')
+		h = []
+		f = []
+		g = 0
+
+		data.each do |o|			
+			h = o.split(' ')
+			f = h.select{|e| e == st}			
+			if h.include?(st)
+				a += 1
+			end
+			g = f.inject(0){|sum, e| sum += 1}	
+			
+		end
+	
+			sum += f.length	 
+		end 
+	
+print "La cantidad de veces que se encuentra la palabra #{st} es #{a} "
+
+	end
+
+ 
 read2('peliculas.txt', sentence)
